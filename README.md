@@ -1,2 +1,1 @@
-# quyiin-s-own-database
-Build own database class library with C#
+# About my first project on GitHub
