@@ -1,0 +1,3028 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Ditzen">
+<meta name="dcterms.date" content="2026-11-03">
+
+<title>Solutions to exercise 10.1</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="solutions-10-1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="solutions-10-1_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="solutions-10-1_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="solutions-10-1_files/libs/quarto-html/popper.min.js"></script>
+<script src="solutions-10-1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="solutions-10-1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="solutions-10-1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="solutions-10-1_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="solutions-10-1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="solutions-10-1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="solutions-10-1_files/libs/bootstrap/bootstrap-215b371544c282197b31c8aa00ce3677.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Solutions to exercise 10.1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jan Ditzen </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 3, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In this exercise we investigate the effect of parameter choices on decision trees.</p>
+<p>First, import the data.</p>
+<div id="71d358e2" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ISLP <span class="im">import</span> load_data</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>bikeshare <span class="op">=</span> load_data(<span class="st">'Bikeshare'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bikeshare.shape)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> bikeshare.drop([<span class="st">"mnth"</span>, <span class="st">"weathersit"</span>, <span class="st">"bikers"</span>, <span class="st">"casual"</span>, <span class="st">"registered"</span>], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> bikeshare[<span class="st">"bikers"</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>bikeshare.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(8645, 15)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">season</th>
+<th data-quarto-table-cell-role="th">mnth</th>
+<th data-quarto-table-cell-role="th">day</th>
+<th data-quarto-table-cell-role="th">hr</th>
+<th data-quarto-table-cell-role="th">holiday</th>
+<th data-quarto-table-cell-role="th">weekday</th>
+<th data-quarto-table-cell-role="th">workingday</th>
+<th data-quarto-table-cell-role="th">weathersit</th>
+<th data-quarto-table-cell-role="th">temp</th>
+<th data-quarto-table-cell-role="th">atemp</th>
+<th data-quarto-table-cell-role="th">hum</th>
+<th data-quarto-table-cell-role="th">windspeed</th>
+<th data-quarto-table-cell-role="th">casual</th>
+<th data-quarto-table-cell-role="th">registered</th>
+<th data-quarto-table-cell-role="th">bikers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1</td>
+<td>Jan</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>6</td>
+<td>0</td>
+<td>clear</td>
+<td>0.24</td>
+<td>0.2879</td>
+<td>0.81</td>
+<td>0.0</td>
+<td>3</td>
+<td>13</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>1</td>
+<td>Jan</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>6</td>
+<td>0</td>
+<td>clear</td>
+<td>0.22</td>
+<td>0.2727</td>
+<td>0.80</td>
+<td>0.0</td>
+<td>8</td>
+<td>32</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>1</td>
+<td>Jan</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>6</td>
+<td>0</td>
+<td>clear</td>
+<td>0.22</td>
+<td>0.2727</td>
+<td>0.80</td>
+<td>0.0</td>
+<td>5</td>
+<td>27</td>
+<td>32</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>1</td>
+<td>Jan</td>
+<td>1</td>
+<td>3</td>
+<td>0</td>
+<td>6</td>
+<td>0</td>
+<td>clear</td>
+<td>0.24</td>
+<td>0.2879</td>
+<td>0.75</td>
+<td>0.0</td>
+<td>3</td>
+<td>10</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>1</td>
+<td>Jan</td>
+<td>1</td>
+<td>4</td>
+<td>0</td>
+<td>6</td>
+<td>0</td>
+<td>clear</td>
+<td>0.24</td>
+<td>0.2879</td>
+<td>0.75</td>
+<td>0.0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>More details</p>
+<div id="6b6a5b47" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bikeshare.info()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>bikeshare.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.DataFrame'&gt;
+RangeIndex: 8645 entries, 0 to 8644
+Data columns (total 15 columns):
+ #   Column      Non-Null Count  Dtype   
+---  ------      --------------  -----   
+ 0   season      8645 non-null   int64   
+ 1   mnth        8645 non-null   category
+ 2   day         8645 non-null   int64   
+ 3   hr          8645 non-null   category
+ 4   holiday     8645 non-null   int64   
+ 5   weekday     8645 non-null   int64   
+ 6   workingday  8645 non-null   int64   
+ 7   weathersit  8645 non-null   category
+ 8   temp        8645 non-null   float64 
+ 9   atemp       8645 non-null   float64 
+ 10  hum         8645 non-null   float64 
+ 11  windspeed   8645 non-null   float64 
+ 12  casual      8645 non-null   int64   
+ 13  registered  8645 non-null   int64   
+ 14  bikers      8645 non-null   int64   
+dtypes: category(3), float64(4), int64(8)
+memory usage: 836.5 KB</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">season</th>
+<th data-quarto-table-cell-role="th">day</th>
+<th data-quarto-table-cell-role="th">holiday</th>
+<th data-quarto-table-cell-role="th">weekday</th>
+<th data-quarto-table-cell-role="th">workingday</th>
+<th data-quarto-table-cell-role="th">temp</th>
+<th data-quarto-table-cell-role="th">atemp</th>
+<th data-quarto-table-cell-role="th">hum</th>
+<th data-quarto-table-cell-role="th">windspeed</th>
+<th data-quarto-table-cell-role="th">casual</th>
+<th data-quarto-table-cell-role="th">registered</th>
+<th data-quarto-table-cell-role="th">bikers</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">count</th>
+<td>8645.000000</td>
+<td>8645.00000</td>
+<td>8645.000000</td>
+<td>8645.000000</td>
+<td>8645.000000</td>
+<td>8645.000000</td>
+<td>8645.00000</td>
+<td>8645.000000</td>
+<td>8645.000000</td>
+<td>8645.000000</td>
+<td>8645.000000</td>
+<td>8645.000000</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">mean</th>
+<td>2.513592</td>
+<td>184.39572</td>
+<td>0.027646</td>
+<td>3.012724</td>
+<td>0.683748</td>
+<td>0.489069</td>
+<td>0.46900</td>
+<td>0.643430</td>
+<td>0.191172</td>
+<td>28.600578</td>
+<td>115.193869</td>
+<td>143.794448</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">std</th>
+<td>1.105477</td>
+<td>104.82334</td>
+<td>0.163966</td>
+<td>2.006370</td>
+<td>0.465040</td>
+<td>0.197943</td>
+<td>0.17676</td>
+<td>0.196293</td>
+<td>0.123191</td>
+<td>38.840789</td>
+<td>109.461014</td>
+<td>133.797854</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">min</th>
+<td>1.000000</td>
+<td>1.00000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.020000</td>
+<td>0.00000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">25%</th>
+<td>2.000000</td>
+<td>94.00000</td>
+<td>0.000000</td>
+<td>1.000000</td>
+<td>0.000000</td>
+<td>0.320000</td>
+<td>0.31820</td>
+<td>0.490000</td>
+<td>0.104500</td>
+<td>3.000000</td>
+<td>26.000000</td>
+<td>31.000000</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">50%</th>
+<td>3.000000</td>
+<td>185.00000</td>
+<td>0.000000</td>
+<td>3.000000</td>
+<td>1.000000</td>
+<td>0.500000</td>
+<td>0.48480</td>
+<td>0.650000</td>
+<td>0.194000</td>
+<td>14.000000</td>
+<td>90.000000</td>
+<td>109.000000</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">75%</th>
+<td>3.000000</td>
+<td>275.00000</td>
+<td>0.000000</td>
+<td>5.000000</td>
+<td>1.000000</td>
+<td>0.660000</td>
+<td>0.62120</td>
+<td>0.810000</td>
+<td>0.283600</td>
+<td>38.000000</td>
+<td>168.000000</td>
+<td>211.000000</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">max</th>
+<td>4.000000</td>
+<td>365.00000</td>
+<td>1.000000</td>
+<td>6.000000</td>
+<td>1.000000</td>
+<td>0.960000</td>
+<td>1.00000</td>
+<td>1.000000</td>
+<td>0.850700</td>
+<td>272.000000</td>
+<td>567.000000</td>
+<td>651.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="a" class="level2">
+<h2 class="anchored" data-anchor-id="a">(a)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Fit a regression tree with maximal depth 5 to the data and cross-validate its score (<span class="math inline">\(R^2\)</span>). Comment on the results.</p>
+</div>
+</div>
+</div>
+<p>The cross-validated score is 0.44. This looks decent, but it’s hard to say anything about how good it is before we run other models.</p>
+</section>
+<section id="b" class="level2">
+<h2 class="anchored" data-anchor-id="b">(b)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Try out various choices of <code>max_depth</code>, e.g., 1-15, and display the cross-validated <span class="math inline">\(R^2\)</span> <em>and</em> the training <span class="math inline">\(R^2\)</span> in a table. Comment on the results. How do you interpret these negative <span class="math inline">\(R^2\)</span> values? (<em>Hint</em>: Write a function that returns both <span class="math inline">\(R^2\)</span> values for you when provided with a <code>max_depth</code>, then use a list comprehension to iterate through the values.)</p>
+</div>
+</div>
+</div>
+<div id="72d35ff8" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> scorer(max_depth):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> DecisionTreeRegressor(max_depth<span class="op">=</span>max_depth).fit(X,y)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    cv_score <span class="op">=</span> cross_val_score(model, X, y, cv <span class="op">=</span> <span class="dv">10</span>).mean()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [model.score(X, y), cv_score]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="fde10fc8" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> [scorer(depth) <span class="cf">for</span> depth <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">16</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="26b378c6" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(output, columns <span class="op">=</span> [<span class="st">"Training"</span>, <span class="st">"CV"</span>], index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">16</span>)).style.<span class="bu">format</span>(precision<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<style type="text/css">
+</style>
+
+<table id="T_0b223" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_0b223_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Training</th>
+<th id="T_0b223_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">CV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_0b223_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">1</th>
+<td id="T_0b223_row0_col0" class="data row0 col0">0.312</td>
+<td id="T_0b223_row0_col1" class="data row0 col1">-0.343</td>
+</tr>
+<tr class="even">
+<th id="T_0b223_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">2</th>
+<td id="T_0b223_row1_col0" class="data row1 col0">0.456</td>
+<td id="T_0b223_row1_col1" class="data row1 col1">0.127</td>
+</tr>
+<tr class="odd">
+<th id="T_0b223_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">3</th>
+<td id="T_0b223_row2_col0" class="data row2 col0">0.530</td>
+<td id="T_0b223_row2_col1" class="data row2 col1">0.204</td>
+</tr>
+<tr class="even">
+<th id="T_0b223_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">4</th>
+<td id="T_0b223_row3_col0" class="data row3 col0">0.618</td>
+<td id="T_0b223_row3_col1" class="data row3 col1">0.346</td>
+</tr>
+<tr class="odd">
+<th id="T_0b223_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">5</th>
+<td id="T_0b223_row4_col0" class="data row4 col0">0.665</td>
+<td id="T_0b223_row4_col1" class="data row4 col1">0.443</td>
+</tr>
+<tr class="even">
+<th id="T_0b223_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">6</th>
+<td id="T_0b223_row5_col0" class="data row5 col0">0.775</td>
+<td id="T_0b223_row5_col1" class="data row5 col1">0.547</td>
+</tr>
+<tr class="odd">
+<th id="T_0b223_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">7</th>
+<td id="T_0b223_row6_col0" class="data row6 col0">0.821</td>
+<td id="T_0b223_row6_col1" class="data row6 col1">0.610</td>
+</tr>
+<tr class="even">
+<th id="T_0b223_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">8</th>
+<td id="T_0b223_row7_col0" class="data row7 col0">0.854</td>
+<td id="T_0b223_row7_col1" class="data row7 col1">0.654</td>
+</tr>
+<tr class="odd">
+<th id="T_0b223_level0_row8" class="row_heading level0 row8" data-quarto-table-cell-role="th">9</th>
+<td id="T_0b223_row8_col0" class="data row8 col0">0.894</td>
+<td id="T_0b223_row8_col1" class="data row8 col1">0.680</td>
+</tr>
+<tr class="even">
+<th id="T_0b223_level0_row9" class="row_heading level0 row9" data-quarto-table-cell-role="th">10</th>
+<td id="T_0b223_row9_col0" class="data row9 col0">0.919</td>
+<td id="T_0b223_row9_col1" class="data row9 col1">0.667</td>
+</tr>
+<tr class="odd">
+<th id="T_0b223_level0_row10" class="row_heading level0 row10" data-quarto-table-cell-role="th">11</th>
+<td id="T_0b223_row10_col0" class="data row10 col0">0.938</td>
+<td id="T_0b223_row10_col1" class="data row10 col1">0.663</td>
+</tr>
+<tr class="even">
+<th id="T_0b223_level0_row11" class="row_heading level0 row11" data-quarto-table-cell-role="th">12</th>
+<td id="T_0b223_row11_col0" class="data row11 col0">0.955</td>
+<td id="T_0b223_row11_col1" class="data row11 col1">0.666</td>
+</tr>
+<tr class="odd">
+<th id="T_0b223_level0_row12" class="row_heading level0 row12" data-quarto-table-cell-role="th">13</th>
+<td id="T_0b223_row12_col0" class="data row12 col0">0.968</td>
+<td id="T_0b223_row12_col1" class="data row12 col1">0.661</td>
+</tr>
+<tr class="even">
+<th id="T_0b223_level0_row13" class="row_heading level0 row13" data-quarto-table-cell-role="th">14</th>
+<td id="T_0b223_row13_col0" class="data row13 col0">0.977</td>
+<td id="T_0b223_row13_col1" class="data row13 col1">0.649</td>
+</tr>
+<tr class="odd">
+<th id="T_0b223_level0_row14" class="row_heading level0 row14" data-quarto-table-cell-role="th">15</th>
+<td id="T_0b223_row14_col0" class="data row14 col0">0.985</td>
+<td id="T_0b223_row14_col1" class="data row14 col1">0.669</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="c" class="level2">
+<h2 class="anchored" data-anchor-id="c">(c)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Repeat the previous exercise, but this time with <code>max_leaf_nodes</code>. What does this parameter do? Try out leaf nodes from 40 to 400, but with a step of 20. (I.e., 40, 80,…, 400) Remember to comment on the results!</p>
+</div>
+</div>
+</div>
+<div id="2f30f392" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> scorer(max_depth<span class="op">=</span><span class="va">None</span>, max_leaf_nodes<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> DecisionTreeRegressor(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        max_depth<span class="op">=</span>max_depth, max_leaf_nodes<span class="op">=</span>max_leaf_nodes</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    ).fit(X, y)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    cv_score <span class="op">=</span> cross_val_score(model, X, y, cv<span class="op">=</span><span class="dv">10</span>).mean()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [model.score(X, y), cv_score]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="32a35cd8" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> <span class="bu">range</span>(<span class="dv">40</span>, <span class="dv">401</span>, <span class="dv">40</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> [scorer(max_leaf_nodes <span class="op">=</span> nodes) <span class="cf">for</span> nodes <span class="kw">in</span> nodes]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="39fe5c16" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(output, columns <span class="op">=</span> [<span class="st">"Training"</span>, <span class="st">"CV"</span>], index <span class="op">=</span> nodes).style.<span class="bu">format</span>(precision<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<style type="text/css">
+</style>
+
+<table id="T_c0b2b" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_c0b2b_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Training</th>
+<th id="T_c0b2b_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">CV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_c0b2b_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">40</th>
+<td id="T_c0b2b_row0_col0" class="data row0 col0">0.821</td>
+<td id="T_c0b2b_row0_col1" class="data row0 col1">0.589</td>
+</tr>
+<tr class="even">
+<th id="T_c0b2b_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">80</th>
+<td id="T_c0b2b_row1_col0" class="data row1 col0">0.878</td>
+<td id="T_c0b2b_row1_col1" class="data row1 col1">0.661</td>
+</tr>
+<tr class="odd">
+<th id="T_c0b2b_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">120</th>
+<td id="T_c0b2b_row2_col0" class="data row2 col0">0.898</td>
+<td id="T_c0b2b_row2_col1" class="data row2 col1">0.687</td>
+</tr>
+<tr class="even">
+<th id="T_c0b2b_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">160</th>
+<td id="T_c0b2b_row3_col0" class="data row3 col0">0.914</td>
+<td id="T_c0b2b_row3_col1" class="data row3 col1">0.677</td>
+</tr>
+<tr class="odd">
+<th id="T_c0b2b_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">200</th>
+<td id="T_c0b2b_row4_col0" class="data row4 col0">0.926</td>
+<td id="T_c0b2b_row4_col1" class="data row4 col1">0.679</td>
+</tr>
+<tr class="even">
+<th id="T_c0b2b_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">240</th>
+<td id="T_c0b2b_row5_col0" class="data row5 col0">0.936</td>
+<td id="T_c0b2b_row5_col1" class="data row5 col1">0.663</td>
+</tr>
+<tr class="odd">
+<th id="T_c0b2b_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">280</th>
+<td id="T_c0b2b_row6_col0" class="data row6 col0">0.942</td>
+<td id="T_c0b2b_row6_col1" class="data row6 col1">0.663</td>
+</tr>
+<tr class="even">
+<th id="T_c0b2b_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">320</th>
+<td id="T_c0b2b_row7_col0" class="data row7 col0">0.947</td>
+<td id="T_c0b2b_row7_col1" class="data row7 col1">0.660</td>
+</tr>
+<tr class="odd">
+<th id="T_c0b2b_level0_row8" class="row_heading level0 row8" data-quarto-table-cell-role="th">360</th>
+<td id="T_c0b2b_row8_col0" class="data row8 col0">0.952</td>
+<td id="T_c0b2b_row8_col1" class="data row8 col1">0.663</td>
+</tr>
+<tr class="even">
+<th id="T_c0b2b_level0_row9" class="row_heading level0 row9" data-quarto-table-cell-role="th">400</th>
+<td id="T_c0b2b_row9_col0" class="data row9 col0">0.956</td>
+<td id="T_c0b2b_row9_col1" class="data row9 col1">0.663</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="d" class="level2">
+<h2 class="anchored" data-anchor-id="d">(d)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Now we try out the pruning parameter. We will not use <code>GridSearchCV</code> just yet - instead, we will repeat the two previous exercises with the <code>ccp_alpha</code> parameter.</p>
+</div>
+</div>
+</div>
+<div id="e4695fbd" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> scorer(max_depth<span class="op">=</span><span class="va">None</span>, max_leaf_nodes<span class="op">=</span><span class="va">None</span>, ccp_alpha<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> DecisionTreeRegressor(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        max_depth<span class="op">=</span>max_depth, max_leaf_nodes<span class="op">=</span>max_leaf_nodes, ccp_alpha<span class="op">=</span>ccp_alpha</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    ).fit(X, y)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    cv_score <span class="op">=</span> cross_val_score(model, X, y, cv<span class="op">=</span><span class="dv">10</span>).mean()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [model.score(X, y), cv_score]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2c97ffd4" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>alphas <span class="op">=</span> np.logspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">20</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> [scorer(ccp_alpha <span class="op">=</span> alpha) <span class="cf">for</span> alpha <span class="kw">in</span> alphas]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="c403c84b" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(output, columns <span class="op">=</span> [<span class="st">"Training"</span>, <span class="st">"CV"</span>], index <span class="op">=</span> alphas).style.<span class="bu">format</span>(precision<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<style type="text/css">
+</style>
+
+<table id="T_8c847" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_8c847_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Training</th>
+<th id="T_8c847_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">CV</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_8c847_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0.001000</th>
+<td id="T_8c847_row0_col0" class="data row0 col0">1.000</td>
+<td id="T_8c847_row0_col1" class="data row0 col1">0.621</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">0.001833</th>
+<td id="T_8c847_row1_col0" class="data row1 col0">1.000</td>
+<td id="T_8c847_row1_col1" class="data row1 col1">0.623</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">0.003360</th>
+<td id="T_8c847_row2_col0" class="data row2 col0">1.000</td>
+<td id="T_8c847_row2_col1" class="data row2 col1">0.639</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">0.006158</th>
+<td id="T_8c847_row3_col0" class="data row3 col0">1.000</td>
+<td id="T_8c847_row3_col1" class="data row3 col1">0.638</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">0.011288</th>
+<td id="T_8c847_row4_col0" class="data row4 col0">0.999</td>
+<td id="T_8c847_row4_col1" class="data row4 col1">0.648</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">0.020691</th>
+<td id="T_8c847_row5_col0" class="data row5 col0">0.999</td>
+<td id="T_8c847_row5_col1" class="data row5 col1">0.655</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">0.037927</th>
+<td id="T_8c847_row6_col0" class="data row6 col0">0.998</td>
+<td id="T_8c847_row6_col1" class="data row6 col1">0.623</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">0.069519</th>
+<td id="T_8c847_row7_col0" class="data row7 col0">0.996</td>
+<td id="T_8c847_row7_col1" class="data row7 col1">0.618</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row8" class="row_heading level0 row8" data-quarto-table-cell-role="th">0.127427</th>
+<td id="T_8c847_row8_col0" class="data row8 col0">0.993</td>
+<td id="T_8c847_row8_col1" class="data row8 col1">0.624</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row9" class="row_heading level0 row9" data-quarto-table-cell-role="th">0.233572</th>
+<td id="T_8c847_row9_col0" class="data row9 col0">0.989</td>
+<td id="T_8c847_row9_col1" class="data row9 col1">0.667</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row10" class="row_heading level0 row10" data-quarto-table-cell-role="th">0.428133</th>
+<td id="T_8c847_row10_col0" class="data row10 col0">0.982</td>
+<td id="T_8c847_row10_col1" class="data row10 col1">0.654</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row11" class="row_heading level0 row11" data-quarto-table-cell-role="th">0.784760</th>
+<td id="T_8c847_row11_col0" class="data row11 col0">0.973</td>
+<td id="T_8c847_row11_col1" class="data row11 col1">0.662</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row12" class="row_heading level0 row12" data-quarto-table-cell-role="th">1.438450</th>
+<td id="T_8c847_row12_col0" class="data row12 col0">0.960</td>
+<td id="T_8c847_row12_col1" class="data row12 col1">0.667</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row13" class="row_heading level0 row13" data-quarto-table-cell-role="th">2.636651</th>
+<td id="T_8c847_row13_col0" class="data row13 col0">0.944</td>
+<td id="T_8c847_row13_col1" class="data row13 col1">0.661</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row14" class="row_heading level0 row14" data-quarto-table-cell-role="th">4.832930</th>
+<td id="T_8c847_row14_col0" class="data row14 col0">0.922</td>
+<td id="T_8c847_row14_col1" class="data row14 col1">0.673</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row15" class="row_heading level0 row15" data-quarto-table-cell-role="th">8.858668</th>
+<td id="T_8c847_row15_col0" class="data row15 col0">0.900</td>
+<td id="T_8c847_row15_col1" class="data row15 col1">0.678</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row16" class="row_heading level0 row16" data-quarto-table-cell-role="th">16.237767</th>
+<td id="T_8c847_row16_col0" class="data row16 col0">0.870</td>
+<td id="T_8c847_row16_col1" class="data row16 col1">0.661</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row17" class="row_heading level0 row17" data-quarto-table-cell-role="th">29.763514</th>
+<td id="T_8c847_row17_col0" class="data row17 col0">0.836</td>
+<td id="T_8c847_row17_col1" class="data row17 col1">0.605</td>
+</tr>
+<tr class="odd">
+<th id="T_8c847_level0_row18" class="row_heading level0 row18" data-quarto-table-cell-role="th">54.555948</th>
+<td id="T_8c847_row18_col0" class="data row18 col0">0.804</td>
+<td id="T_8c847_row18_col1" class="data row18 col1">0.551</td>
+</tr>
+<tr class="even">
+<th id="T_8c847_level0_row19" class="row_heading level0 row19" data-quarto-table-cell-role="th">100.000000</th>
+<td id="T_8c847_row19_col0" class="data row19 col0">0.758</td>
+<td id="T_8c847_row19_col1" class="data row19 col1">0.519</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="e" class="level2">
+<h2 class="anchored" data-anchor-id="e">(e)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Take a look at the wikipedia article for the <a href="https://en.wikipedia.org/wiki/Learning_curve_(machine_learning)">learning curve</a>. Make a similar curve for the results in the previous exercise. This time the <span class="math inline">\(x\)</span> axis will contain the <code>alphas</code> though, not the “training examples”. Add axis labels, a “legend” (showing which curve is which), and use the <code>plt.xscale("log")</code> argument in your plotting.</p>
+</div>
+</div>
+</div>
+<p>The learning curve is in <a href="#fig-learning-curve" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<div id="cell-fig-learning-curve" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> np.array(output)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.plot(alphas, output[:,<span class="dv">0</span>], label <span class="op">=</span> <span class="st">"Training"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plt.plot(alphas, output[:,<span class="dv">1</span>], label <span class="op">=</span> <span class="st">"Cross-validated"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Alphas"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"R squared"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>plt.xscale(<span class="st">"log"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div id="fig-learning-curve" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-learning-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="solutions-10-1_files/figure-html/fig-learning-curve-output-1.png" class="quarto-figure quarto-figure-center figure-img" width="590" height="433">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-learning-curve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Learning curve
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="f" class="level2">
+<h2 class="anchored" data-anchor-id="f">(f)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Inspect the option <code>max_leaf_nodes</code> in the <a href="https://scikit-learn.org/1.5/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor">documentation</a>. Try out some of the different options and comment on the results. You do not need to put them in a table this time.</p>
+</div>
+</div>
+</div>
+<div id="6de901bf" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> scorer(max_depth<span class="op">=</span><span class="va">None</span>, max_leaf_nodes<span class="op">=</span><span class="va">None</span>, max_features <span class="op">=</span> <span class="va">None</span>,ccp_alpha<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> DecisionTreeRegressor(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        max_depth<span class="op">=</span>max_depth, max_leaf_nodes<span class="op">=</span>max_leaf_nodes, max_features<span class="op">=</span>max_features, ccp_alpha<span class="op">=</span>ccp_alpha</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    ).fit(X, y)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    cv_score <span class="op">=</span> cross_val_score(model, X, y, cv<span class="op">=</span><span class="dv">10</span>).mean()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [model.score(X, y), cv_score]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="1afaf990" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scorer(max_features <span class="op">=</span> <span class="st">"log2"</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scorer(max_features <span class="op">=</span> <span class="st">"sqrt"</span>))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scorer(max_features <span class="op">=</span> <span class="va">None</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1.0, np.float64(0.4195686634393205)]
+[1.0, np.float64(0.34894406566298874)]
+[1.0, np.float64(0.6248161883454177)]</code></pre>
+</div>
+</div>
+<p>Using <code>max_features = None</code> works much nbetter in this case.</p>
+</section>
+<section id="g" class="level2">
+<h2 class="anchored" data-anchor-id="g">(g)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<blockquote class="blockquote">
+<p>See if you can combine your results to construct a really well-performing decision tree model.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<p>The best number of leaf nodes appears to be approximately 200. It’s a decent idea to see if we can improve on this model using <code>ccp_alpha</code>, perhaps with a somewhat larger number of leaf nodes. The best <code>ccp_alpha</code> is unlikely to help us here, since we’re potentially dealing with less complex models.</p>
+<p>One possibility is to use our scorer function for this, e.g.,</p>
+<div id="1b5d9983" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>scorer(max_leaf_nodes <span class="op">=</span> <span class="dv">180</span>, ccp_alpha <span class="op">=</span> <span class="fl">0.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>[0.9213490302657615, np.float64(0.6801516175258493)]</code></pre>
+</div>
+</div>
+<p>But this fails to improve our model much. I tried several other options, but wasn’t get any “significantly” better model out of it.</p>
+</section>
+<section id="g-1" class="level2">
+<h2 class="anchored" data-anchor-id="g-1">(g)</h2>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Fit a model using <code>GridSearchCV</code> with appropriate parameters. Use the same <code>cv</code> parameter as you have done in the other exercises. Report the interesting parameters of the best model and its cross-validated score. Inspect the feature importances of the best model. Comment on the results.</p>
+</div>
+</div>
+</div>
+<p>Modifying <code>max_leaf_nodes</code> didn’t yield any appreciable results, so we stick to cross-validating <code>ccp_alpha</code>, using <code>alphas = np.linspace(4, 16, 20)</code> this time, since the optimal alpha (found in an earlier exercise) was approximately 9, but with decent results in its vincinity.</p>
+<div id="0f36bec2" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Code for <code>GridSearchCV</code>.</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> GridSearchCV</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>alphas <span class="op">=</span> np.linspace(<span class="dv">4</span>, <span class="dv">16</span>, <span class="dv">20</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>grid <span class="op">=</span> GridSearchCV(DecisionTreeRegressor(), param_grid <span class="op">=</span> {<span class="st">"ccp_alpha"</span>: alphas}, cv <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>grid.fit(X,y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<style>.sk-global {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+}
+
+.sk-global.light {
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: black;
+  --sklearn-color-background: white;
+  --sklearn-color-border-box: black;
+  --sklearn-color-icon: #696969;
+}
+
+.sk-global.dark {
+  --sklearn-color-text-on-default-background: white;
+  --sklearn-color-background: #111;
+  --sklearn-color-border-box: white;
+  --sklearn-color-icon: #878787;
+}
+
+.sk-global {
+  color: var(--sklearn-color-text);
+}
+
+.sk-global pre {
+  padding: 0;
+}
+
+.sk-global input.sk-hidden--visually {
+  border: 0;
+  clip-path: inset(100%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sk-global div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+.sk-global div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+.sk-global div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+.sk-global div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+.sk-global div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+.sk-global div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.sk-global div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+.sk-global div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+.sk-global div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+.sk-global div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+.sk-global div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+.sk-global label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.sk-global label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+.sk-global label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+.sk-global label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+.sk-global div.sk-toggleable__content {
+  display: none;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+.sk-global div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+.sk-global div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+.sk-global div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+.sk-global input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+
+.sk-global input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+.sk-global div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+.sk-global div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+.sk-global div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+.sk-global div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+.sk-global div.sk-label label.sk-toggleable__label,
+.sk-global div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+.sk-global div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+.sk-global div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+.sk-global div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  line-height: 1.2em;
+}
+
+.sk-global div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+.sk-global div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+.sk-global div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+.sk-global div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+.sk-global div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-unfitted-level-0);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-3) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3) 1pt solid;
+  color: var(--sklearn-color-fitted-level-3);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  border: var(--sklearn-color-fitted-level-0) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-0);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  border: var(--sklearn-color-fitted-level-0) 1pt solid;
+  color: var(--sklearn-color-fitted-level-0);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+.sk-global a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-unfitted-level-0);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+.sk-global a.estimator_doc_link.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+.sk-global a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+.sk-global a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-top-container.sk-global {
+  /* pydata-sphinx-theme hides overflow, so scrolling is disabled.
+   We need to set it to !important and add tabindex="0" in the HTML
+   to allow keyboard-only users to navigate the display. */
+  overflow-x: scroll !important;
+  max-width: 100%;
+}
+
+.estimator-table {
+    font-family: monospace;
+}
+
+.estimator-table summary {
+    padding: .5rem;
+    cursor: pointer;
+}
+
+.estimator-table summary::marker {
+    font-size: 0.7rem;
+}
+
+.estimator-table details[open] {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.estimator-table .parameters-table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0;
+}
+
+.estimator-table .parameters-table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.estimator-table .parameters-table tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+.estimator-table .parameters-table tr:hover td {
+    background-color: #e0e0e0;
+}
+
+.estimator-table table :is(td, th) {
+    border: 1px solid rgba(106, 105, 104, 0.232);
+}
+
+/*
+    `table td`is set in notebook with right text-align.
+    We need to overwrite it.
+*/
+.estimator-table table td.param {
+    text-align: left;
+    position: relative;
+    padding: 0;
+}
+
+.user-set td {
+    color:rgb(255, 94, 0);
+    text-align: left !important;
+}
+
+.user-set td.value {
+    color:rgb(255, 94, 0);
+    background-color: transparent;
+}
+
+.default td, .estimator-table th {
+    color: black;
+    text-align: left !important;
+}
+
+.user-set td i,
+.default td i {
+    color: black;
+}
+
+td.fitted-att-type {
+    white-space: preserve nowrap;
+}
+
+/*
+    Styles for parameter documentation links
+    We need styling for visited so jupyter doesn't overwrite it
+*/
+a.param-doc-link,
+a.param-doc-link:link,
+a.param-doc-link:visited {
+    text-decoration: underline dashed;
+    text-underline-offset: .3em;
+    color: inherit;
+    display: block;
+    padding: .5em;
+}
+
+@supports(anchor-name: --doc-link) {
+    a.param-doc-link,
+    a.param-doc-link:link,
+    a.param-doc-link:visited {
+    anchor-name: --doc-link;
+    }
+}
+
+/* "hack" to make the entire area of the cell containing the link clickable */
+a.param-doc-link::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+}
+
+.param-doc-description {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    left: 0;
+    padding: .5ex;
+    margin-left: 1.5em;
+    color: var(--sklearn-color-text);
+    box-shadow: .3em .3em .4em #999;
+    width: max-content;
+    text-align: left;
+    max-height: 10em;
+    overflow-y: auto;
+
+    /* unfitted */
+    background: var(--sklearn-color-unfitted-level-0);
+    border: thin solid var(--sklearn-color-unfitted-level-3);
+}
+
+@supports(position-area: center right) {
+    .param-doc-description {
+    position-area: center right;
+    position: fixed;
+    margin-left: 0;
+    }
+}
+
+/* Fitted state for parameter tooltips */
+.fitted .param-doc-description {
+    /* fitted */
+    background: var(--sklearn-color-fitted-level-0);
+    border: thin solid var(--sklearn-color-fitted-level-3);
+}
+
+.param-doc-link:hover .param-doc-description {
+    display: block;
+}
+
+.copy-paste-icon {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNy4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjUgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTIwOCAwTDMzMi4xIDBjMTIuNyAwIDI0LjkgNS4xIDMzLjkgMTQuMWw2Ny45IDY3LjljOSA5IDE0LjEgMjEuMiAxNC4xIDMzLjlMNDQ4IDMzNmMwIDI2LjUtMjEuNSA0OC00OCA0OGwtMTkyIDBjLTI2LjUgMC00OC0yMS41LTQ4LTQ4bDAtMjg4YzAtMjYuNSAyMS41LTQ4IDQ4LTQ4ek00OCAxMjhsODAgMCAwIDY0LTY0IDAgMCAyNTYgMTkyIDAgMC0zMiA2NCAwIDAgNDhjMCAyNi41LTIxLjUgNDgtNDggNDhMNDggNTEyYy0yNi41IDAtNDgtMjEuNS00OC00OEwwIDE3NmMwLTI2LjUgMjEuNS00OCA0OC00OHoiLz48L3N2Zz4=);
+    background-repeat: no-repeat;
+    background-size: 14px 14px;
+    background-position: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.features {
+  font-family: monospace;
+  cursor: pointer;
+  background-color: var(--sklearn-color-unfitted-level-0);
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: .20em;
+  margin-bottom: 0.5em;
+  font-size: inherit; /* Needed for jupyter */
+}
+
+.features.fitted {
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+.features summary {
+  cursor: pointer;
+  display: flex;
+  margin-bottom: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: .25em;
+}
+
+.features details[open] > summary {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+  border-radius: .20em 0 0 0;
+}
+
+.features.fitted details[open] > summary {
+  background-color: var(--sklearn-color-fitted-level-2);
+  border-radius: .20em 0 0 0;
+}
+
+.features details > summary .arrow::before {
+  content: "▸";
+  color: grey;
+}
+
+.features details[open] > summary .arrow::before {
+  content: "▾";
+}
+
+.features details:hover > summary {
+  margin: 0;
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+.features.fitted details:hover > summary {
+  margin: 0;
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+.features .features-container {
+  max-width: 15em;
+  max-height: 10em;
+  overflow: auto;
+  scrollbar-width: thin;
+  padding: .25em 0.1rem;
+  background-color: var(--sklearn-color-unfitted-level-0);
+  border-radius: 0 0 .5em .5em;
+}
+
+.features.fitted .features-container {
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+.features .image-container {
+  block-size: 1em;
+  inline-size: 1em;
+  padding: 0;
+  margin: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.features .copy-paste-icon {
+  background-size: 1em 1em;
+  width: 1em;
+  height: 1em;
+  filter: grayscale(100%) opacity(60%);
+}
+
+.features .features-container table {
+  width: 100%;
+  margin: 0.01em;
+}
+
+.features .features-container table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.features .features-container table tr:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+.features .features-container table tr:hover {
+  background-color: #e0e0e0;
+}
+
+.features .features-container table {
+  table-layout: inherit;
+}
+
+.features .features-container table td {
+  text-align: left;
+  padding: 0 0.5em;
+  border: 1px solid rgba(106, 105, 104, 0.232);
+  white-space: nowrap;
+  color: var(--sklearn-color-text);
+}
+
+.total_features {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+</style><div id="sk-container-id-1" tabindex="0" class="sk-top-container sk-global"><div class="sk-text-repr-fallback"><pre>GridSearchCV(cv=10, estimator=DecisionTreeRegressor(),
+             param_grid={'ccp_alpha': array([ 4.        ,  4.63157895,  5.26315789,  5.89473684,  6.52631579,
+        7.15789474,  7.78947368,  8.42105263,  9.05263158,  9.68421053,
+       10.31578947, 10.94736842, 11.57894737, 12.21052632, 12.84210526,
+       13.47368421, 14.10526316, 14.73684211, 15.36842105, 16.        ])})</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually sk-global" id="sk-estimator-id-1" type="checkbox"><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GridSearchCV</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted" data-param-prefix="">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=estimator,-estimator%20object" class="param-doc-link" style="anchor-name: --doc-link-estimator;" rel="noreferrer" target="_blank">estimator <span class="param-doc-description" style="position-anchor: --doc-link-estimator;"> estimator: estimator object<br>
+<br>
+This is assumed to implement the scikit-learn estimator interface.<br>
+Either estimator needs to provide a ``score`` function,<br>
+or ``scoring`` must be passed.</span></a></td>
+<td class="value">DecisionTreeRegressor()</td>
+</tr>
+<tr class="user-set even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=param_grid,-dict%20or%20list%20of%20dictionaries" class="param-doc-link" style="anchor-name: --doc-link-param_grid;" rel="noreferrer" target="_blank">param_grid <span class="param-doc-description" style="position-anchor: --doc-link-param_grid;"> param_grid: dict or list of dictionaries<br>
+<br>
+Dictionary with parameters names (`str`) as keys and lists of<br>
+parameter settings to try as values, or a list of such<br>
+dictionaries, in which case the grids spanned by each dictionary<br>
+in the list are explored. This enables searching over any sequence<br>
+of parameter settings.</span></a></td>
+<td class="value">{'ccp_alpha': array([ 4. ... 16. ])}</td>
+</tr>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=cv,-int%2C%20cross-validation%20generator%20or%20an%20iterable%2C%20default%3DNone" class="param-doc-link" style="anchor-name: --doc-link-cv;" rel="noreferrer" target="_blank">cv <span class="param-doc-description" style="position-anchor: --doc-link-cv;"> cv: int, cross-validation generator or an iterable, default=None<br>
+<br>
+Determines the cross-validation splitting strategy.<br>
+Possible inputs for cv are:<br>
+<br>
+- None, to use the default 5-fold cross validation,<br>
+- integer, to specify the number of folds in a `(Stratified)KFold`,<br>
+- :term:`CV splitter`,<br>
+- an iterable yielding (train, test) splits as arrays of indices.<br>
+<br>
+For integer/None inputs, if the estimator is a classifier and ``y`` is<br>
+either binary or multiclass, :class:`StratifiedKFold` is used. In all<br>
+other cases, :class:`KFold` is used. These splitters are instantiated<br>
+with `shuffle=False` so the splits will be the same across calls.<br>
+<br>
+Refer :ref:`User Guide &lt;cross_validation&gt;` for the various<br>
+cross-validation strategies that can be used here.<br>
+<br>
+.. versionchanged:: 0.22<br>
+``cv`` default value if None changed from 3-fold to 5-fold.</span></a></td>
+<td class="value">10</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=scoring,-str%2C%20callable%2C%20list%2C%20tuple%20or%20dict%2C%20default%3DNone" class="param-doc-link" style="anchor-name: --doc-link-scoring;" rel="noreferrer" target="_blank">scoring <span class="param-doc-description" style="position-anchor: --doc-link-scoring;"> scoring: str, callable, list, tuple or dict, default=None<br>
+<br>
+Strategy to evaluate the performance of the cross-validated model on<br>
+the test set.<br>
+<br>
+If `scoring` represents a single score, one can use:<br>
+<br>
+- a single string (see :ref:`scoring_string_names`);<br>
+- a callable (see :ref:`scoring_callable`) that returns a single value;<br>
+- `None`, the `estimator`'s<br>
+:ref:`default evaluation criterion &lt;scoring_api_overview&gt;` is used.<br>
+<br>
+If `scoring` represents multiple scores, one can use:<br>
+<br>
+- a list or tuple of unique strings;<br>
+- a callable returning a dictionary where the keys are the metric<br>
+names and the values are the metric scores;<br>
+- a dictionary with metric names as keys and callables as values.<br>
+<br>
+See :ref:`multimetric_grid_search` for an example.</span></a></td>
+<td class="value">None</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=n_jobs,-int%2C%20default%3DNone" class="param-doc-link" style="anchor-name: --doc-link-n_jobs;" rel="noreferrer" target="_blank">n_jobs <span class="param-doc-description" style="position-anchor: --doc-link-n_jobs;"> n_jobs: int, default=None<br>
+<br>
+Number of jobs to run in parallel.<br>
+``None`` means 1 unless in a :obj:`joblib.parallel_backend` context.<br>
+``-1`` means using all processors. See :term:`Glossary &lt;n_jobs&gt;`<br>
+for more details.<br>
+<br>
+.. versionchanged:: v0.20<br>
+`n_jobs` default changed from 1 to None</span></a></td>
+<td class="value">None</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=refit,-bool%2C%20str%2C%20or%20callable%2C%20default%3DTrue" class="param-doc-link" style="anchor-name: --doc-link-refit;" rel="noreferrer" target="_blank">refit <span class="param-doc-description" style="position-anchor: --doc-link-refit;"> refit: bool, str, or callable, default=True<br>
+<br>
+Refit an estimator using the best found parameters on the whole<br>
+dataset.<br>
+<br>
+For multiple metric evaluation, this needs to be a `str` denoting the<br>
+scorer that would be used to find the best parameters for refitting<br>
+the estimator at the end.<br>
+<br>
+Where there are considerations other than maximum score in<br>
+choosing a best estimator, ``refit`` can be set to a function which<br>
+returns the selected ``best_index_`` given ``cv_results_``. In that<br>
+case, the ``best_estimator_`` and ``best_params_`` will be set<br>
+according to the returned ``best_index_`` while the ``best_score_``<br>
+attribute will not be available.<br>
+<br>
+The refitted estimator is made available at the ``best_estimator_``<br>
+attribute and permits using ``predict`` directly on this<br>
+``GridSearchCV`` instance.<br>
+<br>
+Also for multiple metric evaluation, the attributes ``best_index_``,<br>
+``best_score_`` and ``best_params_`` will only be available if<br>
+``refit`` is set and all of them will be determined w.r.t this specific<br>
+scorer.<br>
+<br>
+See ``scoring`` parameter to know more about multiple metric<br>
+evaluation.<br>
+<br>
+See :ref:`sphx_glr_auto_examples_model_selection_plot_grid_search_digits.py`<br>
+to see how to design a custom selection strategy using a callable<br>
+via `refit`.<br>
+<br>
+See :ref:`this example<br>
+&lt;sphx_glr_auto_examples_model_selection_plot_grid_search_refit_callable.py&gt;`<br>
+for an example of how to use ``refit=callable`` to balance model<br>
+complexity and cross-validated score.<br>
+<br>
+.. versionchanged:: 0.20<br>
+Support for callable added.</span></a></td>
+<td class="value">True</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=verbose,-int%2C%20default%3D0" class="param-doc-link" style="anchor-name: --doc-link-verbose;" rel="noreferrer" target="_blank">verbose <span class="param-doc-description" style="position-anchor: --doc-link-verbose;"> verbose: int, default=0<br>
+<br>
+Controls the verbosity of information printed during fitting, with higher<br>
+values yielding more detailed logging.<br>
+<br>
+- 0 : no messages are printed;<br>
+- &gt;=1 : summary of the total number of fits;<br>
+- &gt;=2 : computation time for each fold and parameter candidate;<br>
+- &gt;=3 : fold indices and scores;<br>
+- &gt;=10 : parameter candidate indices and START messages before each fit.</span></a></td>
+<td class="value">0</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=pre_dispatch,-int%2C%20or%20str%2C%20default%3D%272%2An_jobs%27" class="param-doc-link" style="anchor-name: --doc-link-pre_dispatch;" rel="noreferrer" target="_blank">pre_dispatch <span class="param-doc-description" style="position-anchor: --doc-link-pre_dispatch;"> pre_dispatch: int, or str, default='2*n_jobs'<br>
+<br>
+Controls the number of jobs that get dispatched during parallel<br>
+execution. Reducing this number can be useful to avoid an<br>
+explosion of memory consumption when more jobs get dispatched<br>
+than CPUs can process. This parameter can be:<br>
+<br>
+- None, in which case all the jobs are immediately created and spawned. Use<br>
+this for lightweight and fast-running jobs, to avoid delays due to on-demand<br>
+spawning of the jobs<br>
+- An int, giving the exact number of total jobs that are spawned<br>
+- A str, giving an expression as a function of n_jobs, as in '2*n_jobs'</span></a></td>
+<td class="value">'2*n_jobs'</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=error_score,-%27raise%27%20or%20numeric%2C%20default%3Dnp.nan" class="param-doc-link" style="anchor-name: --doc-link-error_score;" rel="noreferrer" target="_blank">error_score <span class="param-doc-description" style="position-anchor: --doc-link-error_score;"> error_score: 'raise' or numeric, default=np.nan<br>
+<br>
+Value to assign to the score if an error occurs in estimator fitting.<br>
+If set to 'raise', the error is raised. If a numeric value is given,<br>
+FitFailedWarning is raised. This parameter does not affect the refit<br>
+step, which will always raise the error.</span></a></td>
+<td class="value">nan</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=return_train_score,-bool%2C%20default%3DFalse" class="param-doc-link" style="anchor-name: --doc-link-return_train_score;" rel="noreferrer" target="_blank">return_train_score <span class="param-doc-description" style="position-anchor: --doc-link-return_train_score;"> return_train_score: bool, default=False<br>
+<br>
+If ``False``, the ``cv_results_`` attribute will not include training<br>
+scores.<br>
+Computing training scores is used to get insights on how different<br>
+parameter settings impact the overfitting/underfitting trade-off.<br>
+However computing the scores on the training set can be computationally<br>
+expensive and is not strictly required to select the parameters that<br>
+yield the best generalization performance.<br>
+<br>
+.. versionadded:: 0.19<br>
+<br>
+.. versionchanged:: 0.21<br>
+Default value was changed from ``True`` to ``False``</span></a></td>
+<td class="value">False</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    
+        <div class="estimator-table">
+            <details>
+                <summary>Fitted attributes</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Value</th>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=best_estimator_,-estimator" class="param-doc-link" style="anchor-name: --doc-link-best_estimator_;" rel="noreferrer" target="_blank">best_estimator_ <span class="param-doc-description" style="position-anchor: --doc-link-best_estimator_;"> best_estimator_: estimator<br>
+<br>
+Estimator that was chosen by the search, i.e. estimator<br>
+which gave highest score (or smallest loss if specified)<br>
+on the left out data. Not available if ``refit=False``.<br>
+<br>
+See ``refit`` parameter for more information on allowed values.</span></a></td>
+<td class="fitted-att-type">DecisionTreeRegressor</td>
+<td>DecisionTreeR...052631578947))</td>
+</tr>
+<tr class="default odd">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=best_index_,-int" class="param-doc-link" style="anchor-name: --doc-link-best_index_;" rel="noreferrer" target="_blank">best_index_ <span class="param-doc-description" style="position-anchor: --doc-link-best_index_;"> best_index_: int<br>
+<br>
+The index (of the ``cv_results_`` arrays) which corresponds to the best<br>
+candidate parameter setting.<br>
+<br>
+The dict at ``search.cv_results_['params'][search.best_index_]`` gives<br>
+the parameter setting for the best model, that gives the highest<br>
+mean score (``search.best_score_``).<br>
+<br>
+For multi-metric evaluation, this is present only if ``refit`` is<br>
+specified.</span></a></td>
+<td class="fitted-att-type">int64</td>
+<td>np.int64(7)</td>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=best_params_,-dict" class="param-doc-link" style="anchor-name: --doc-link-best_params_;" rel="noreferrer" target="_blank">best_params_ <span class="param-doc-description" style="position-anchor: --doc-link-best_params_;"> best_params_: dict<br>
+<br>
+Parameter setting that gave the best results on the hold out data.<br>
+<br>
+For multi-metric evaluation, this is present only if ``refit`` is<br>
+specified.</span></a></td>
+<td class="fitted-att-type">dict</td>
+<td>{'cc...ha': np.float64(8.421052631578947)}</td>
+</tr>
+<tr class="default odd">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=best_score_,-float" class="param-doc-link" style="anchor-name: --doc-link-best_score_;" rel="noreferrer" target="_blank">best_score_ <span class="param-doc-description" style="position-anchor: --doc-link-best_score_;"> best_score_: float<br>
+<br>
+Mean cross-validated score of the best_estimator<br>
+<br>
+For multi-metric evaluation, this is present only if ``refit`` is<br>
+specified.<br>
+<br>
+This attribute is not available if ``refit`` is a function.</span></a></td>
+<td class="fitted-att-type">float64</td>
+<td>0.6832</td>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=cv_results_,-dict%20of%20numpy%20%28masked%29%20ndarrays" class="param-doc-link" style="anchor-name: --doc-link-cv_results_;" rel="noreferrer" target="_blank">cv_results_ <span class="param-doc-description" style="position-anchor: --doc-link-cv_results_;"> cv_results_: dict of numpy (masked) ndarrays<br>
+<br>
+A dict with keys as column headers and values as columns, that can be<br>
+imported into a pandas ``DataFrame``.<br>
+<br>
+For instance the below given table<br>
+<br>
++------------+-----------+------------+-----------------+---+---------+<br>
+|param_kernel|param_gamma|param_degree|split0_test_score|...|rank_t...|<br>
++============+===========+============+=================+===+=========+<br>
+| 'poly' | -- | 2 | 0.80 |...| 2 |<br>
++------------+-----------+------------+-----------------+---+---------+<br>
+| 'poly' | -- | 3 | 0.70 |...| 4 |<br>
++------------+-----------+------------+-----------------+---+---------+<br>
+| 'rbf' | 0.1 | -- | 0.80 |...| 3 |<br>
++------------+-----------+------------+-----------------+---+---------+<br>
+| 'rbf' | 0.2 | -- | 0.93 |...| 1 |<br>
++------------+-----------+------------+-----------------+---+---------+<br>
+<br>
+will be represented by a ``cv_results_`` dict of::<br>
+<br>
+{<br>
+'param_kernel': masked_array(data = ['poly', 'poly', 'rbf', 'rbf'],<br>
+mask = [False False False False]...)<br>
+'param_gamma': masked_array(data = [-- -- 0.1 0.2],<br>
+mask = [ True True False False]...),<br>
+'param_degree': masked_array(data = [2.0 3.0 -- --],<br>
+mask = [False False True True]...),<br>
+'split0_test_score' : [0.80, 0.70, 0.80, 0.93],<br>
+'split1_test_score' : [0.82, 0.50, 0.70, 0.78],<br>
+'mean_test_score' : [0.81, 0.60, 0.75, 0.85],<br>
+'std_test_score' : [0.01, 0.10, 0.05, 0.08],<br>
+'rank_test_score' : [2, 4, 3, 1],<br>
+'split0_train_score' : [0.80, 0.92, 0.70, 0.93],<br>
+'split1_train_score' : [0.82, 0.55, 0.70, 0.87],<br>
+'mean_train_score' : [0.81, 0.74, 0.70, 0.90],<br>
+'std_train_score' : [0.01, 0.19, 0.00, 0.03],<br>
+'mean_fit_time' : [0.73, 0.63, 0.43, 0.49],<br>
+'std_fit_time' : [0.01, 0.02, 0.01, 0.01],<br>
+'mean_score_time' : [0.01, 0.06, 0.04, 0.04],<br>
+'std_score_time' : [0.00, 0.00, 0.00, 0.01],<br>
+'params' : [{'kernel': 'poly', 'degree': 2}, ...],<br>
+}<br>
+<br>
+For an example of visualization and interpretation of GridSearch results,<br>
+see :ref:`sphx_glr_auto_examples_model_selection_plot_grid_search_stats.py`.<br>
+<br>
+NOTE<br>
+<br>
+The key ``'params'`` is used to store a list of parameter<br>
+settings dicts for all the parameter candidates.<br>
+<br>
+The ``mean_fit_time``, ``std_fit_time``, ``mean_score_time`` and<br>
+``std_score_time`` are all in seconds.<br>
+<br>
+For multi-metric evaluation, the scores for all the scorers are<br>
+available in the ``cv_results_`` dict at the keys ending with that<br>
+scorer's name (``'_&lt;scorer_name&gt;'``) instead of ``'_score'`` shown<br>
+above. ('split0_test_precision', 'mean_train_precision' etc.)</span></a></td>
+<td class="fitted-att-type">dict</td>
+<td>{'me...me': array([0.5540..., 0.6608973 ]), 'me...me': array([0.0047..., 0.00519955]), 'me...re': array([0.6802..., 0.66105192]), 'pa...ha': masked_array(...l_value=1e+20), ...}</td>
+</tr>
+<tr class="default odd">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=feature_names_in_,-ndarray%20of%20shape%20%28n_features_in_%2C%29" class="param-doc-link" style="anchor-name: --doc-link-feature_names_in_;" rel="noreferrer" target="_blank">feature_names_in_ <span class="param-doc-description" style="position-anchor: --doc-link-feature_names_in_;"> feature_names_in_: ndarray of shape (`n_features_in_`,)<br>
+<br>
+Names of features seen during :term:`fit`. Only defined if<br>
+`best_estimator_` is defined (see the documentation for the `refit`<br>
+parameter for more details) and that `best_estimator_` exposes<br>
+`feature_names_in_` when fit.<br>
+<br>
+.. versionadded:: 1.0</span></a></td>
+<td class="fitted-att-type">ndarray[object](10,)</td>
+<td>['season','day','hr',...,'atemp','hum','windspeed']</td>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=multimetric_,-bool" class="param-doc-link" style="anchor-name: --doc-link-multimetric_;" rel="noreferrer" target="_blank">multimetric_ <span class="param-doc-description" style="position-anchor: --doc-link-multimetric_;"> multimetric_: bool<br>
+<br>
+Whether or not the scorers compute several metrics.</span></a></td>
+<td class="fitted-att-type">bool</td>
+<td>False</td>
+</tr>
+<tr class="default odd">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=n_features_in_,-int" class="param-doc-link" style="anchor-name: --doc-link-n_features_in_;" rel="noreferrer" target="_blank">n_features_in_ <span class="param-doc-description" style="position-anchor: --doc-link-n_features_in_;"> n_features_in_: int<br>
+<br>
+Number of features seen during :term:`fit`. Only defined if<br>
+`best_estimator_` is defined (see the documentation for the `refit`<br>
+parameter for more details) and that `best_estimator_` exposes<br>
+`n_features_in_` when fit.<br>
+<br>
+.. versionadded:: 0.24</span></a></td>
+<td class="fitted-att-type">int</td>
+<td>10</td>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=n_splits_,-int" class="param-doc-link" style="anchor-name: --doc-link-n_splits_;" rel="noreferrer" target="_blank">n_splits_ <span class="param-doc-description" style="position-anchor: --doc-link-n_splits_;"> n_splits_: int<br>
+<br>
+The number of cross-validation splits (folds/iterations).</span></a></td>
+<td class="fitted-att-type">int</td>
+<td>10</td>
+</tr>
+<tr class="default odd">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=refit_time_,-float" class="param-doc-link" style="anchor-name: --doc-link-refit_time_;" rel="noreferrer" target="_blank">refit_time_ <span class="param-doc-description" style="position-anchor: --doc-link-refit_time_;"> refit_time_: float<br>
+<br>
+Seconds used for refitting the best model on the whole dataset.<br>
+<br>
+This is present only if ``refit`` is not False.<br>
+<br>
+.. versionadded:: 0.20</span></a></td>
+<td class="fitted-att-type">float</td>
+<td>1.437</td>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.model_selection.GridSearchCV.html#:~:text=scorer_,-function%20or%20a%20dict" class="param-doc-link" style="anchor-name: --doc-link-scorer_;" rel="noreferrer" target="_blank">scorer_ <span class="param-doc-description" style="position-anchor: --doc-link-scorer_;"> scorer_: function or a dict<br>
+<br>
+Scorer function used on the held out data to choose the best<br>
+parameters for the model.<br>
+<br>
+For multi-metric evaluation, this attribute holds the validated<br>
+``scoring`` dict which maps the scorer key to the scorer callable.</span></a></td>
+<td class="fitted-att-type">_PassthroughScorer</td>
+<td>DecisionTreeRegressor.score</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually sk-global" id="sk-estimator-id-2" type="checkbox"><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeRegressor</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___"><pre>DecisionTreeRegressor(ccp_alpha=np.float64(8.421052631578947))</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually sk-global" id="sk-estimator-id-3" type="checkbox"><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeRegressor</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html">?<span>Documentation for DecisionTreeRegressor</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___">
+        <div class="estimator-table">
+            <details>
+                <summary>Parameters</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="user-set odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=ccp_alpha,-non-negative%20float%2C%20default%3D0.0" class="param-doc-link" style="anchor-name: --doc-link-ccp_alpha;" rel="noreferrer" target="_blank">ccp_alpha <span class="param-doc-description" style="position-anchor: --doc-link-ccp_alpha;"> ccp_alpha: non-negative float, default=0.0<br>
+<br>
+Complexity parameter used for Minimal Cost-Complexity Pruning. The<br>
+subtree with the largest cost complexity that is smaller than<br>
+``ccp_alpha`` will be chosen. By default, no pruning is performed. See<br>
+:ref:`minimal_cost_complexity_pruning` for details. See<br>
+:ref:`sphx_glr_auto_examples_tree_plot_cost_complexity_pruning.py`<br>
+for an example of such pruning.<br>
+<br>
+.. versionadded:: 0.22</span></a></td>
+<td class="value">np.float64(8.421052631578947)</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=criterion,-%7B%22squared_error%22%2C%20%22absolute_error%22%2C%20%22poisson%22%7D%2C%20default%3D%22squared_error%22" class="param-doc-link" style="anchor-name: --doc-link-criterion;" rel="noreferrer" target="_blank">criterion <span class="param-doc-description" style="position-anchor: --doc-link-criterion;"> criterion: {"squared_error", "absolute_error", "poisson"}, default="squared_error"<br>
+<br>
+The function to measure the quality of a split. Supported criteria<br>
+are "squared_error" for the mean squared error, which is equal to<br>
+variance reduction as feature selection criterion and minimizes the L2<br>
+loss using the mean of each terminal node, "absolute_error" for the mean<br>
+absolute error, which minimizes the L1 loss using the median of each terminal<br>
+node, and "poisson" which uses reduction in Poisson deviance to find splits,<br>
+also using the mean of each terminal node.<br>
+<br>
+.. versionadded:: 0.18<br>
+Mean Absolute Error (MAE) criterion.<br>
+<br>
+.. versionadded:: 0.24<br>
+Poisson deviance criterion.<br>
+<br>
+.. versionchanged:: 1.9<br>
+Criterion `"friedman_mse"` was deprecated.</span></a></td>
+<td class="value">'squared_error'</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=splitter,-%7B%22best%22%2C%20%22random%22%7D%2C%20default%3D%22best%22" class="param-doc-link" style="anchor-name: --doc-link-splitter;" rel="noreferrer" target="_blank">splitter <span class="param-doc-description" style="position-anchor: --doc-link-splitter;"> splitter: {"best", "random"}, default="best"<br>
+<br>
+The strategy used to choose the split at each node. Supported<br>
+strategies are "best" to choose the best split and "random" to choose<br>
+the best random split.</span></a></td>
+<td class="value">'best'</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=max_depth,-int%2C%20default%3DNone" class="param-doc-link" style="anchor-name: --doc-link-max_depth;" rel="noreferrer" target="_blank">max_depth <span class="param-doc-description" style="position-anchor: --doc-link-max_depth;"> max_depth: int, default=None<br>
+<br>
+The maximum depth of the tree. If None, then nodes are expanded until<br>
+all leaves are pure or until all leaves contain less than<br>
+min_samples_split samples.<br>
+<br>
+For an example of how ``max_depth`` influences the model, see<br>
+:ref:`sphx_glr_auto_examples_tree_plot_tree_regression.py`.</span></a></td>
+<td class="value">None</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=min_samples_split,-int%20or%20float%2C%20default%3D2" class="param-doc-link" style="anchor-name: --doc-link-min_samples_split;" rel="noreferrer" target="_blank">min_samples_split <span class="param-doc-description" style="position-anchor: --doc-link-min_samples_split;"> min_samples_split: int or float, default=2<br>
+<br>
+The minimum number of samples required to split an internal node:<br>
+<br>
+- If int, then consider `min_samples_split` as the minimum number.<br>
+- If float, then `min_samples_split` is a fraction and<br>
+`ceil(min_samples_split * n_samples)` are the minimum<br>
+number of samples for each split.<br>
+<br>
+.. versionchanged:: 0.18<br>
+Added float values for fractions.</span></a></td>
+<td class="value">2</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=min_samples_leaf,-int%20or%20float%2C%20default%3D1" class="param-doc-link" style="anchor-name: --doc-link-min_samples_leaf;" rel="noreferrer" target="_blank">min_samples_leaf <span class="param-doc-description" style="position-anchor: --doc-link-min_samples_leaf;"> min_samples_leaf: int or float, default=1<br>
+<br>
+The minimum number of samples required to be at a leaf node.<br>
+A split point at any depth will only be considered if it leaves at<br>
+least ``min_samples_leaf`` training samples in each of the left and<br>
+right branches. This may have the effect of smoothing the model,<br>
+especially in regression.<br>
+<br>
+- If int, then consider `min_samples_leaf` as the minimum number.<br>
+- If float, then `min_samples_leaf` is a fraction and<br>
+`ceil(min_samples_leaf * n_samples)` are the minimum<br>
+number of samples for each node.<br>
+<br>
+.. versionchanged:: 0.18<br>
+Added float values for fractions.</span></a></td>
+<td class="value">1</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=min_weight_fraction_leaf,-float%2C%20default%3D0.0" class="param-doc-link" style="anchor-name: --doc-link-min_weight_fraction_leaf;" rel="noreferrer" target="_blank">min_weight_fraction_leaf <span class="param-doc-description" style="position-anchor: --doc-link-min_weight_fraction_leaf;"> min_weight_fraction_leaf: float, default=0.0<br>
+<br>
+The minimum weighted fraction of the sum total of weights (of all<br>
+the input samples) required to be at a leaf node. Samples have<br>
+equal weight when sample_weight is not provided.</span></a></td>
+<td class="value">0.0</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=max_features,-int%2C%20float%20or%20%7B%22sqrt%22%2C%20%22log2%22%7D%2C%20default%3DNone" class="param-doc-link" style="anchor-name: --doc-link-max_features;" rel="noreferrer" target="_blank">max_features <span class="param-doc-description" style="position-anchor: --doc-link-max_features;"> max_features: int, float or {"sqrt", "log2"}, default=None<br>
+<br>
+The number of features to consider when looking for the best split:<br>
+<br>
+- If int, then consider `max_features` features at each split.<br>
+- If float, then `max_features` is a fraction and<br>
+`max(1, int(max_features * n_features_in_))` features are considered at each<br>
+split.<br>
+- If "sqrt", then `max_features=sqrt(n_features)`.<br>
+- If "log2", then `max_features=log2(n_features)`.<br>
+- If None, then `max_features=n_features`.<br>
+<br>
+Note: the search for a split does not stop until at least one<br>
+valid partition of the node samples is found, even if it requires to<br>
+effectively inspect more than ``max_features`` features.</span></a></td>
+<td class="value">None</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=random_state,-int%2C%20RandomState%20instance%20or%20None%2C%20default%3DNone" class="param-doc-link" style="anchor-name: --doc-link-random_state;" rel="noreferrer" target="_blank">random_state <span class="param-doc-description" style="position-anchor: --doc-link-random_state;"> random_state: int, RandomState instance or None, default=None<br>
+<br>
+Controls the randomness of the estimator. The features are always<br>
+randomly permuted at each split, even if ``splitter`` is set to<br>
+``"best"``. When ``max_features &lt; n_features``, the algorithm will<br>
+select ``max_features`` at random at each split before finding the best<br>
+split among them. But the best found split may vary across different<br>
+runs, even if ``max_features=n_features``. That is the case, if the<br>
+improvement of the criterion is identical for several splits and one<br>
+split has to be selected at random. To obtain a deterministic behaviour<br>
+during fitting, ``random_state`` has to be fixed to an integer.<br>
+See :term:`Glossary &lt;random_state&gt;` for details.</span></a></td>
+<td class="value">None</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=max_leaf_nodes,-int%2C%20default%3DNone" class="param-doc-link" style="anchor-name: --doc-link-max_leaf_nodes;" rel="noreferrer" target="_blank">max_leaf_nodes <span class="param-doc-description" style="position-anchor: --doc-link-max_leaf_nodes;"> max_leaf_nodes: int, default=None<br>
+<br>
+Grow a tree with ``max_leaf_nodes`` in best-first fashion.<br>
+Best nodes are defined as relative reduction in impurity.<br>
+If None then unlimited number of leaf nodes.</span></a></td>
+<td class="value">None</td>
+</tr>
+<tr class="default odd">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=min_impurity_decrease,-float%2C%20default%3D0.0" class="param-doc-link" style="anchor-name: --doc-link-min_impurity_decrease;" rel="noreferrer" target="_blank">min_impurity_decrease <span class="param-doc-description" style="position-anchor: --doc-link-min_impurity_decrease;"> min_impurity_decrease: float, default=0.0<br>
+<br>
+A node will be split if this split induces a decrease of the impurity<br>
+greater than or equal to this value.<br>
+<br>
+The weighted impurity decrease equation is the following::<br>
+<br>
+N_t / N * (impurity - N_t_R / N_t * right_impurity<br>
+- N_t_L / N_t * left_impurity)<br>
+<br>
+where ``N`` is the total number of samples, ``N_t`` is the number of<br>
+samples at the current node, ``N_t_L`` is the number of samples in the<br>
+left child, and ``N_t_R`` is the number of samples in the right child.<br>
+<br>
+``N``, ``N_t``, ``N_t_R`` and ``N_t_L`` all refer to the weighted sum,<br>
+if ``sample_weight`` is passed.<br>
+<br>
+.. versionadded:: 0.19</span></a></td>
+<td class="value">0.0</td>
+</tr>
+<tr class="default even">
+<td><em></em></td>
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=monotonic_cst,-array-like%20of%20int%20of%20shape%20%28n_features%29%2C%20default%3DNone" class="param-doc-link" style="anchor-name: --doc-link-monotonic_cst;" rel="noreferrer" target="_blank">monotonic_cst <span class="param-doc-description" style="position-anchor: --doc-link-monotonic_cst;"> monotonic_cst: array-like of int of shape (n_features), default=None<br>
+<br>
+Indicates the monotonicity constraint to enforce on each feature.<br>
+- 1: monotonic increase<br>
+- 0: no constraint<br>
+- -1: monotonic decrease<br>
+<br>
+If monotonic_cst is None, no constraints are applied.<br>
+<br>
+Monotonicity constraints are not supported for:<br>
+- multioutput regressions (i.e. when `n_outputs_ &gt; 1`).<br>
+<br>
+Read more in the :ref:`User Guide &lt;monotonic_cst_gbdt&gt;`.<br>
+<br>
+.. versionadded:: 1.4</span></a></td>
+<td class="value">None</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    
+        <div class="estimator-table">
+            <details>
+                <summary>Fitted attributes</summary>
+                
+<table class="parameters-table caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Value</th>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=feature_importances_,-ndarray%20of%20shape%20%28n_features%2C%29" class="param-doc-link" style="anchor-name: --doc-link-feature_importances_;" rel="noreferrer" target="_blank">feature_importances_ <span class="param-doc-description" style="position-anchor: --doc-link-feature_importances_;"> feature_importances_: ndarray of shape (n_features,)<br>
+<br>
+The feature importances.<br>
+The higher, the more important the feature.<br>
+The importance of a feature is computed as the<br>
+(normalized) total reduction of the criterion brought<br>
+by that feature. It is also known as the Gini importance [4]_.<br>
+<br>
+Warning: impurity-based feature importances can be misleading for<br>
+high cardinality features (many unique values). See<br>
+:func:`sklearn.inspection.permutation_importance` as an alternative.</span></a></td>
+<td class="fitted-att-type">ndarray[float64](10,)</td>
+<td>[0.03,0.02,0.67,...,0.01,0.03,0. ]</td>
+</tr>
+<tr class="default odd">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=feature_names_in_,-ndarray%20of%20shape%20%28n_features_in_%2C%29" class="param-doc-link" style="anchor-name: --doc-link-feature_names_in_;" rel="noreferrer" target="_blank">feature_names_in_ <span class="param-doc-description" style="position-anchor: --doc-link-feature_names_in_;"> feature_names_in_: ndarray of shape (`n_features_in_`,)<br>
+<br>
+Names of features seen during :term:`fit`. Defined only when `X`<br>
+has feature names that are all strings.<br>
+<br>
+.. versionadded:: 1.0</span></a></td>
+<td class="fitted-att-type">ndarray[object](10,)</td>
+<td>['season','day','hr',...,'atemp','hum','windspeed']</td>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=max_features_,-int" class="param-doc-link" style="anchor-name: --doc-link-max_features_;" rel="noreferrer" target="_blank">max_features_ <span class="param-doc-description" style="position-anchor: --doc-link-max_features_;"> max_features_: int<br>
+<br>
+The inferred value of max_features.</span></a></td>
+<td class="fitted-att-type">int</td>
+<td>10</td>
+</tr>
+<tr class="default odd">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=n_features_in_,-int" class="param-doc-link" style="anchor-name: --doc-link-n_features_in_;" rel="noreferrer" target="_blank">n_features_in_ <span class="param-doc-description" style="position-anchor: --doc-link-n_features_in_;"> n_features_in_: int<br>
+<br>
+Number of features seen during :term:`fit`.<br>
+<br>
+.. versionadded:: 0.24</span></a></td>
+<td class="fitted-att-type">int</td>
+<td>10</td>
+</tr>
+<tr class="default even">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=n_outputs_,-int" class="param-doc-link" style="anchor-name: --doc-link-n_outputs_;" rel="noreferrer" target="_blank">n_outputs_ <span class="param-doc-description" style="position-anchor: --doc-link-n_outputs_;"> n_outputs_: int<br>
+<br>
+The number of outputs when ``fit`` is performed.</span></a></td>
+<td class="fitted-att-type">int</td>
+<td>1</td>
+</tr>
+<tr class="default odd">
+<td class="param"><a href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeRegressor.html#:~:text=tree_,-Tree%20instance" class="param-doc-link" style="anchor-name: --doc-link-tree_;" rel="noreferrer" target="_blank">tree_ <span class="param-doc-description" style="position-anchor: --doc-link-tree_;"> tree_: Tree instance<br>
+<br>
+The underlying Tree object. Please refer to<br>
+``help(sklearn.tree._tree.Tree)`` for attributes of Tree object and<br>
+:ref:`sphx_glr_auto_examples_tree_plot_unveil_tree_structure.py`<br>
+for basic usage of these attributes.</span></a></td>
+<td class="fitted-att-type">Tree</td>
+<td>&lt;sklearn.tree...001837243B600&gt;</td>
+</tr>
+</tbody>
+</table>
+
+            </details>
+        </div>
+    </div></div></div></div></div></div></div></div></div></div><script>/*  Authors: The scikit-learn developers
+ SPDX-License-Identifier: BSD-3-Clause
+*/
+
+function copyToClipboard(text, element) {
+    // Get the parameter prefix from the closest toggleable content
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+    const fullParamName = paramPrefix ? `${paramPrefix}${text}` : text;
+
+    const originalStyle = element.style;
+    const computedStyle = window.getComputedStyle(element);
+    const originalWidth = computedStyle.width;
+    const originalHTML = element.innerHTML.replace('Copied!', '');
+
+    navigator.clipboard.writeText(fullParamName)
+        .then(() => {
+            element.style.width = originalWidth;
+            element.style.color = 'green';
+            element.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'red';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 2000);
+        });
+    return false;
+}
+
+document.querySelectorAll('.copy-paste-icon').forEach(function(element) {
+    const toggleableContent = element.closest('.sk-toggleable__content');
+    const paramPrefix = toggleableContent ? toggleableContent.dataset.paramPrefix : '';
+
+    const parent = element.parentElement;
+    if (!parent || !parent.nextElementSibling) {
+        console.warn('Expected copy-paste icon is missing from the DOM structure');
+        return;
+    }
+
+    const paramName = element.parentElement.nextElementSibling
+        .textContent.trim().split(' ')[0];
+    const fullParamName = paramPrefix ? `${paramPrefix}${paramName}` : paramName;
+
+    element.setAttribute('title', fullParamName);
+});
+
+/**
+ * Copy the list of feature names formatted as a Python list.
+ *
+ * @param {HTMLElement} element - The copy button inside a `.features` block; its siblings
+ *   contain a `details` element and a table containing feature named.
+ * @returns {boolean} Always returns `false` so callers can prevent the default click behavior.
+ */
+function copyFeatureNamesToClipboard(element) {
+    var detailsElem = element.closest('.features').querySelector('details');
+    var wasOpen = detailsElem.open;
+    detailsElem.open = true;
+    var content = element.closest('.features').querySelector('tbody')
+                  .innerText.trim();
+    if (!wasOpen) detailsElem.open = false;
+    const rows = content.split('\n').map(row => `    "${row}"`);
+    const formattedText = `[\n${rows.join(',\n')},\n]`;
+    const originalHTML = element.innerHTML.replace('✔', '');
+    const originalStyle = element.style;
+    const copyMark = document.createElement('span');
+    copyMark.innerHTML = '✔';
+    copyMark.style.color = 'blue';
+    copyMark.style.fontSize = '1em';
+
+    navigator.clipboard.writeText(formattedText)
+        .then(() => {
+            element.style.display = 'none';
+            element.parentElement.appendChild(copyMark);
+
+            setTimeout(() => {
+                copyMark.remove();
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 1000);
+        })
+        .catch(err => {
+            console.error('Failed to copy:', err);
+            element.style.color = 'orange';
+            element.innerHTML = "Failed!";
+            setTimeout(() => {
+                element.innerHTML = originalHTML;
+                element.style = originalStyle;
+            }, 1000);
+        });
+    return false;
+}
+/**
+ * Adapted from Skrub
+ * https://github.com/skrub-data/skrub/blob/403466d1d5d4dc76a7ef569b3f8228db59a31dc3/skrub/_reporting/_data/templates/report.js#L789
+ * @returns "light" or "dark"
+ */
+function detectTheme(element) {
+    const body = document.querySelector('body');
+
+    // Check VSCode theme
+    const themeKindAttr = body.getAttribute('data-vscode-theme-kind');
+    const themeNameAttr = body.getAttribute('data-vscode-theme-name');
+
+    if (themeKindAttr && themeNameAttr) {
+        const themeKind = themeKindAttr.toLowerCase();
+        const themeName = themeNameAttr.toLowerCase();
+
+        if (themeKind.includes("dark") || themeName.includes("dark")) {
+            return "dark";
+        }
+        if (themeKind.includes("light") || themeName.includes("light")) {
+            return "light";
+        }
+    }
+
+    // Check Jupyter theme
+    if (body.getAttribute('data-jp-theme-light') === 'false') {
+        return 'dark';
+    } else if (body.getAttribute('data-jp-theme-light') === 'true') {
+        return 'light';
+    }
+
+    // Guess based on a parent element's color
+    const color = window.getComputedStyle(element.parentNode, null).getPropertyValue('color');
+    const match = color.match(/^rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)\s*$/i);
+    if (match) {
+        const [r, g, b] = [
+            parseFloat(match[1]),
+            parseFloat(match[2]),
+            parseFloat(match[3])
+        ];
+
+        // https://en.wikipedia.org/wiki/HSL_and_HSV#Lightness
+        const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+
+        if (luma > 180) {
+            // If the text is very bright we have a dark theme
+            return 'dark';
+        }
+        if (luma < 75) {
+            // If the text is very dark we have a light theme
+            return 'light';
+        }
+        // Otherwise fall back to the next heuristic.
+    }
+
+    // Fallback to system preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+
+function forceTheme(elementId) {
+    const estimatorElement = document.querySelector(`#${elementId}`);
+    if (estimatorElement === null) {
+        console.error(`Element with id ${elementId} not found.`);
+    } else {
+        const theme = detectTheme(estimatorElement);
+        estimatorElement.classList.add(theme);
+    }
+}
+
+forceTheme('sk-container-id-1');</script>
+</div>
+</div>
+<p>The number of leaf nodes is approximately 120 this time!</p>
+<div id="3df747d9" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>grid.best_estimator_.get_n_leaves()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>np.int64(120)</code></pre>
+</div>
+</div>
+<p>The depth is 16,</p>
+<div id="b18c08f9" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>grid.best_estimator_.get_depth()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>16</code></pre>
+</div>
+</div>
+<p>and the cross-validated <code>ccp_alpha</code> parameter is approximately 8.</p>
+<div id="8b927ffa" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>grid.best_params_[<span class="st">"ccp_alpha"</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>np.float64(8.421052631578947)</code></pre>
+</div>
+</div>
+<p>The cross-validated score is</p>
+<div id="7ae26e8b" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>grid.best_score_</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>np.float64(0.6831598946311395)</code></pre>
+</div>
+</div>
+<p>These results are unlikely to replicate with changes in random state, since the scores are <em>extremely similar</em> for different choices of <code>alphas</code>.</p>
+<p>Let’s have a look at the importances:</p>
+<div class="cell" data-tbl-cap="Importances for the optimal model." data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="23">
+<style type="text/css">
+#T_e0933_row0_col0 {
+  background-color: #b40426;
+  color: #f1f1f1;
+}
+#T_e0933_row1_col0 {
+  background-color: #89acfd;
+  color: #000000;
+}
+#T_e0933_row2_col0 {
+  background-color: #5a78e4;
+  color: #f1f1f1;
+}
+#T_e0933_row3_col0 {
+  background-color: #4961d2;
+  color: #f1f1f1;
+}
+#T_e0933_row4_col0 {
+  background-color: #465ecf;
+  color: #f1f1f1;
+}
+#T_e0933_row5_col0 {
+  background-color: #455cce;
+  color: #f1f1f1;
+}
+#T_e0933_row6_col0 {
+  background-color: #4055c8;
+  color: #f1f1f1;
+}
+#T_e0933_row7_col0 {
+  background-color: #3c4ec2;
+  color: #f1f1f1;
+}
+#T_e0933_row8_col0, #T_e0933_row9_col0 {
+  background-color: #3b4cc0;
+  color: #f1f1f1;
+}
+</style>
+
+<table id="T_e0933" class="caption-top table table-sm table-striped small">
+<caption>Importances for the optimal model.</caption>
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_e0933_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Importance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_e0933_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">hr</th>
+<td id="T_e0933_row0_col0" class="data row0 col0">0.67</td>
+</tr>
+<tr class="even">
+<th id="T_e0933_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">temp</th>
+<td id="T_e0933_row1_col0" class="data row1 col0">0.16</td>
+</tr>
+<tr class="odd">
+<th id="T_e0933_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">workingday</th>
+<td id="T_e0933_row2_col0" class="data row2 col0">0.068</td>
+</tr>
+<tr class="even">
+<th id="T_e0933_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">hum</th>
+<td id="T_e0933_row3_col0" class="data row3 col0">0.032</td>
+</tr>
+<tr class="odd">
+<th id="T_e0933_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">season</th>
+<td id="T_e0933_row4_col0" class="data row4 col0">0.027</td>
+</tr>
+<tr class="even">
+<th id="T_e0933_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">day</th>
+<td id="T_e0933_row5_col0" class="data row5 col0">0.024</td>
+</tr>
+<tr class="odd">
+<th id="T_e0933_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">atemp</th>
+<td id="T_e0933_row6_col0" class="data row6 col0">0.013</td>
+</tr>
+<tr class="even">
+<th id="T_e0933_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">weekday</th>
+<td id="T_e0933_row7_col0" class="data row7 col0">0.0049</td>
+</tr>
+<tr class="odd">
+<th id="T_e0933_level0_row8" class="row_heading level0 row8" data-quarto-table-cell-role="th">windspeed</th>
+<td id="T_e0933_row8_col0" class="data row8 col0">0.0017</td>
+</tr>
+<tr class="even">
+<th id="T_e0933_level0_row9" class="row_heading level0 row9" data-quarto-table-cell-role="th">holiday</th>
+<td id="T_e0933_row9_col0" class="data row9 col0">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The hour of the day is clearly the most important, followed by the temperature. The windspeed, weekday, and holiday features have almost no effect. Here <code>temp</code> and <code>atemp</code> are extremely similar though, and it would probably be beneficial to remove one of them. But that’s an exercise for another time.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

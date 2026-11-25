@@ -1,0 +1,77 @@
+---
+title: "Exercise 10.1"
+author: Jonas Moss
+date: last-modified
+execute:
+  echo: true
+jupyter: python3
+reference-location: margin
+citation-location: margin
+---
+
+```{python}
+# | echo: False
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+In this exercise we investigate the effect of parameter choices on decision trees.
+
+First, import the data.
+```{python}
+from ISLP import load_data
+bikeshare = load_data('Bikeshare')
+X = bikeshare.drop(["mnth", "weathersit", "bikers", "casual", "registered"], axis=1)
+y = bikeshare["bikers"]
+
+```
+
+## (a)
+::: {.callout-note icon=false appearance="simple"} 
+## 
+Fit a regression tree with maximal depth 5 to the data and cross-validate its score ($R^2$). Comment on the results.
+:::
+
+## (b)
+::: {.callout-note icon=false appearance="simple"} 
+## 
+Try out various choices of `max_depth`, e.g., 1-15, and display the cross-validated $R^2$ *and* the training $R^2$ in a table. Comment on the results. How do you interpret these negative $R^2$ values? (*Hint*: Write a function that returns both $R^2$ values for you when provided with a `max_depth`, then use a list comprehension to iterate through the values.)
+:::
+
+## (c)
+::: {.callout-note icon=false appearance="simple"} 
+## 
+Repeat the previous exercise, but this time with `max_leaf_nodes`. What does this parameter do? Try out leaf nodes from 40 to 400, but with a step of 40. (I.e., 40, 80,..., 400) Remember to comment on the results!
+:::
+
+## (d)
+::: {.callout-note icon=false appearance="simple"} 
+## 
+Now we try out the pruning parameter. We will not use `GridSearchCV` just yet - instead, we will repeat the two previous exercises with the `ccp_alpha` parameter.
+:::
+
+## (e)
+::: {.callout-note icon=false appearance="simple"} 
+## 
+Take a look at the wikipedia article for the [learning curve](https://en.wikipedia.org/wiki/Learning_curve_(machine_learning)). Make a similar curve for the results in the previous exercise. This time the $x$ axis will contain the `alphas` though, not the "training examples". Add axis labels, a "legend" (showing which curve is which), and use the `plt.xscale("log")` argument in your plotting.
+:::
+
+## (f)
+::: {.callout-note icon=false appearance="simple"} 
+## 
+Inspect the option `max_leaf_nodes` in the [documentation](https://scikit-learn.org/1.5/modules/generated/sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor). Try out some of the different options and comment on the results. You do not need to put them in a table this time.
+:::
+
+## (g)
+::: {.callout-note icon=false appearance="simple"} 
+## 
+> See if you can combine your results to construct a really well-performing decision tree model.
+:::
+
+## (h)
+::: {.callout-note icon=false appearance="simple"} 
+## 
+Fit a model using `GridSearchCV` with appropriate parameters. Use the same `cv` parameter as you have done in the other exercises. Report the interesting parameters of the best model and its cross-validated score. Inspect the feature importances of the best model. Comment on the results.
+:::
